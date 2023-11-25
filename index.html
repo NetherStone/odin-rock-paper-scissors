@@ -10,30 +10,40 @@
         const choices = ["Rock", "Paper", "Scissors"];
         return choices[Math.floor(Math.random() * 3)];
     }
-    console.log(getComputerChoice())
 
     function playRound(playerSelection, computerSelection) { 
         let matchResult = ""; // For outcome, draw, win or lose
-        let declareResult = ""; // For text to be returned based on matchResult
+        let declareResult = ""; // For text/string to be returned based on matchResult
 
         let playerChoice = playerSelection.toLowerCase(); // Non-case sensitive...Assuming user/player types input correctly
         playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
 
         if (playerChoice === computerSelection) { // Draw 
             matchResult = "Draw";
-        } else if (playerChoice == "Rock" && computerSelection == "Scissors") { // All scenarios for winning
+        } else if (playerChoice === "Rock" && computerSelection === "Scissors") { // All scenarios for winning
             matchResult = "Win";
-        } else if (playerChoice == "Paper" && computerSelection == "Rock"){
+        } else if (playerChoice === "Paper" && computerSelection === "Rock"){
             matchResult = "Win";
-        } else if (playerChoice == "Scissors" && computerSelection == "Paper"){
+        } else if (playerChoice === "Scissors" && computerSelection === "Paper"){
             matchResult = "Win";
         } else { // What's left are scenarios for losing
             matchResult = "Lose";
         }
+
+        if (matchResult === "Draw") { // Determining string to be returned
+            declareResult = "Draw! Both you and the computer picked the same!"
+        } else if (matchResult === "Win") {
+            declareResult = `You Win! ${playerChoice} beats ${computerSelection}`
+        } else if (matchResult === "Lose") {
+            declareResult = `You Lose! ${computerSelection} beats ${playerChoice}`
+        }
+
+        return declareResult
     }
 
     const playerSelection = "rock";
     const computerSelection = getComputerChoice();
+    console.log(computerSelection)
     console.log(playRound(playerSelection, computerSelection));
 
   </script>
