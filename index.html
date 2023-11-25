@@ -10,8 +10,22 @@
         const choices = ["Rock", "Paper", "Scissors"];
         return choices[Math.floor(Math.random() * 3)];
     }
-
     console.log(getComputerChoice())
+
+    function playRound(playerSelection, computerSelection) {
+        let declareResult = ""
+        let playerChoice = playerSelection.toLowerCase();
+        playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
+        if (playerChoice === computerSelection) {
+            declareResult = "Draw! Both you and the computer picked the same!"
+            return declareResult
+        }
+    }
+
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+
   </script>
 </body>
 </html>
