@@ -6,19 +6,29 @@
 </head>
 <body>
   <script>
-    function getComputerChoice() {
+    function getComputerChoice() { // Computer to randomly pick one
         const choices = ["Rock", "Paper", "Scissors"];
         return choices[Math.floor(Math.random() * 3)];
     }
     console.log(getComputerChoice())
 
-    function playRound(playerSelection, computerSelection) {
-        let declareResult = ""
-        let playerChoice = playerSelection.toLowerCase();
+    function playRound(playerSelection, computerSelection) { 
+        let matchResult = ""; // For outcome, draw, win or lose
+        let declareResult = ""; // For text to be returned based on matchResult
+
+        let playerChoice = playerSelection.toLowerCase(); // Non-case sensitive...Assuming user/player types input correctly
         playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
-        if (playerChoice === computerSelection) {
-            declareResult = "Draw! Both you and the computer picked the same!"
-            return declareResult
+
+        if (playerChoice === computerSelection) { // Draw 
+            matchResult = "Draw";
+        } else if (playerChoice == "Rock" && computerSelection == "Scissors") { // All scenarios for winning
+            matchResult = "Win";
+        } else if (playerChoice == "Paper" && computerSelection == "Rock"){
+            matchResult = "Win";
+        } else if (playerChoice == "Scissors" && computerSelection == "Paper"){
+            matchResult = "Win";
+        } else { // What's left are scenarios for losing
+            matchResult = "Lose";
         }
     }
 
