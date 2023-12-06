@@ -60,26 +60,24 @@
     scissorsButton.textContent = 'Scissors';
     scissorsButton.id = 'scissorsID';
 
-    let playerSelection = null;
+    let playerSelection = null; // initialize playerSelection
 
-    rockButton.addEventListener("click", () => { 
+    rockButton.addEventListener("click", () => {   //eventlistener for buttons
         let playerSelection = 'Rock';
-        console.log(playerSelection)
+        console.log(playRound(playerSelection, getComputerChoice()));
     });
 
     paperButton.addEventListener("click", () => { 
         let playerSelection = 'Paper';
-        console.log(playerSelection)
+        console.log(playRound(playerSelection, getComputerChoice()));
     });
 
     scissorsButton.addEventListener("click", () => { 
         let playerSelection = 'Scissors';
-        console.log(playerSelection)
+        console.log(playRound(playerSelection, getComputerChoice()));
     });
 
-
-
-    document.body.appendChild(rockButton)
+    document.body.appendChild(rockButton)  //append buttons to html
     document.body.appendChild(paperButton)
     document.body.appendChild(scissorsButton)
   </script>
