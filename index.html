@@ -18,7 +18,7 @@
         let playerChoice = playerSelection.toLowerCase(); // Non-case sensitive...Assuming user/player types input correctly
         playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1);
 
-        console.log(`You picked ${playerChoice}, while the computer picked ${computerSelection}.`);
+        declareResult += `You picked ${playerChoice}, while the computer picked ${computerSelection}.`;
 
         if (playerChoice === computerSelection) { // Draw 
             matchResult = "Draw";
@@ -33,11 +33,11 @@
         }
 
         if (matchResult === "Draw") { // Determining string to be returned
-            declareResult = "Draw! Both you and the computer picked the same!"
+            declareResult += " Draw! Both you and the computer picked the same!"
         } else if (matchResult === "Win") {
-            declareResult = `You Win! ${playerChoice} beats ${computerSelection}.`;
+            declareResult += ` You Win! ${playerChoice} beats ${computerSelection}.`;
         } else if (matchResult === "Lose") {
-            declareResult = `You Lose! ${computerSelection} beats ${playerChoice}.`;
+            declareResult += ` You Lose! ${computerSelection} beats ${playerChoice}.`;
         }
 
         return declareResult;
@@ -71,12 +71,12 @@
 
     paperButton.addEventListener("click", () => { 
         let playerSelection = 'Paper';
-        console.log(playRound(playerSelection, getComputerChoice()));
+        divElement.textContent = playRound(playerSelection, getComputerChoice());
     });
 
     scissorsButton.addEventListener("click", () => { 
         let playerSelection = 'Scissors';
-        console.log(playRound(playerSelection, getComputerChoice()));
+        divElement.textContent = playRound(playerSelection, getComputerChoice());
     });
 
     document.body.appendChild(rockButton)  //append to html
