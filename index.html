@@ -48,7 +48,7 @@
         console.log(playRound(playerSelection, computerSelection));
         }
 
-    const rockButton = document.createElement('button'); //buttons
+    const rockButton = document.createElement('button'); //creating elements
     rockButton.textContent = 'Rock';
     rockButton.id = 'rockID';
 
@@ -60,11 +60,13 @@
     scissorsButton.textContent = 'Scissors';
     scissorsButton.id = 'scissorsID';
 
+    const divElement = document.createElement("div");
+
     let playerSelection = null; // initialize playerSelection
 
     rockButton.addEventListener("click", () => {   //eventlistener for buttons
         let playerSelection = 'Rock';
-        console.log(playRound(playerSelection, getComputerChoice()));
+        divElement.textContent = playRound(playerSelection, getComputerChoice());
     });
 
     paperButton.addEventListener("click", () => { 
@@ -77,9 +79,11 @@
         console.log(playRound(playerSelection, getComputerChoice()));
     });
 
-    document.body.appendChild(rockButton)  //append buttons to html
+    document.body.appendChild(rockButton)  //append to html
     document.body.appendChild(paperButton)
     document.body.appendChild(scissorsButton)
+
+    document.body.appendChild(divElement);
   </script>
 </body>
 </html>
