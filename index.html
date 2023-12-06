@@ -47,7 +47,6 @@
         returnArray.push(declareResult);
         returnArray.push(playerScore);
         returnArray.push(computerScore);
-        console.log(returnArray);
 
         return returnArray;
     }
@@ -80,12 +79,18 @@
 
     paperButton.addEventListener("click", () => { 
         let playerSelection = 'Paper';
-        divElement.textContent = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        getArray = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        playerScore = getArray[1];
+        computerScore = getArray[2];
+        divElement.textContent = getArray[0];
     });
 
     scissorsButton.addEventListener("click", () => { 
         let playerSelection = 'Scissors';
-        divElement.textContent = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        getArray = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        playerScore = getArray[1];
+        computerScore = getArray[2];
+        divElement.textContent = getArray[0];
     });
 
     document.body.appendChild(rockButton)  //append to html
