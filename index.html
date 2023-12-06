@@ -44,7 +44,19 @@
             declareResult += ` You Lose! ${computerSelection} beats ${playerChoice} Current score: ${playerScore}-${computerScore}.`;
         }
 
-        returnArray.push(declareResult);
+        if (playerScore === 5 || computerScore === 5) { // Declare winner of game once score reaches 5
+            if (playerScore === 5) {
+                declareResult += " Congratulations! You have won against the computer!"
+            }
+            else {
+                declareResult += " You have lost against the computer! Try again!"
+            }
+
+            playerScore = 0
+            computerScore = 0
+        }
+
+        returnArray.push(declareResult); // Add variables to array
         returnArray.push(playerScore);
         returnArray.push(computerScore);
 
@@ -96,7 +108,6 @@
     document.body.appendChild(rockButton)  //append to html
     document.body.appendChild(paperButton)
     document.body.appendChild(scissorsButton)
-
     document.body.appendChild(divElement);
   </script>
 </body>
