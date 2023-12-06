@@ -12,7 +12,7 @@
     }
 
     function playRound(playerSelection, computerSelection, playerScore, computerScore) { 
-        let returnArray = [];
+        let returnArray = []; // To store everything
 
         let matchResult = ""; // For outcome, draw, win or lose
         let declareResult = ""; // For text/string to be returned based on matchResult
@@ -72,7 +72,10 @@
 
     rockButton.addEventListener("click", () => {   //eventlistener for buttons
         let playerSelection = 'Rock';
-        playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        getArray = playRound(playerSelection, getComputerChoice(), playerScore, computerScore);
+        playerScore = getArray[1];
+        computerScore = getArray[2];
+        divElement.textContent = getArray[0];
     });
 
     paperButton.addEventListener("click", () => { 
