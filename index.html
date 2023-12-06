@@ -50,17 +50,34 @@
 
     const rockButton = document.createElement('button'); //buttons
     rockButton.textContent = 'Rock';
-    rockButton.id = 'rockID'
+    rockButton.id = 'rockID';
 
     const paperButton = document.createElement('button');
     paperButton.textContent = 'Paper';
-    rockButton.id = 'paperID'
+    rockButton.id = 'paperID';
 
     const scissorsButton = document.createElement('button');
     scissorsButton.textContent = 'Scissors';
-    scissorsButton.id = 'scissorsID'
+    scissorsButton.id = 'scissorsID';
 
-    let playerSelection = null
+    let playerSelection = null;
+
+    rockButton.addEventListener("click", () => { 
+        let playerSelection = 'Rock';
+        console.log(playerSelection)
+    });
+
+    paperButton.addEventListener("click", () => { 
+        let playerSelection = 'Paper';
+        console.log(playerSelection)
+    });
+
+    scissorsButton.addEventListener("click", () => { 
+        let playerSelection = 'Scissors';
+        console.log(playerSelection)
+    });
+
+
 
     document.body.appendChild(rockButton)
     document.body.appendChild(paperButton)
